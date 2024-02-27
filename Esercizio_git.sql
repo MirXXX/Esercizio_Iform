@@ -13,17 +13,16 @@ CREATE TABLE users (
     password_ VARCHAR(255)
     );
 
-    CREATE TABLE esercizio_iform.regioni (
-id_regione integer NOT NULL AUTO_INCREMENT,
-nome varchar (255),
-primary key (id_regione)
-);
+CREATE TABLE esercizio_iform.regioni (
+    id_regione INTEGER NOT NULL AUTO_INCREMENT,
+    nome VARCHAR (255),
+    PRIMARY KEY (id_regione)
+    );
 
-
-CREATE TABLE citta {
-    id_citta integer NOT NULL AUTO_INCREMENT,
-    nome varchar (255),
-    id_regione integer,
-    primary key (id_citta)
-};
+CREATE TABLE esercizio_iform.citta (
+    id_citta INTEGER NOT NULL AUTO_INCREMENT,
+    nome VARCHAR (100),
+    id_regione INTEGER,
+    PRIMARY KEY (id_citta)
+    );
 
