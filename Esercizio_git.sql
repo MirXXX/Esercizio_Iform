@@ -20,3 +20,10 @@ primary key (id_regione)
 );
 
 
+CREATE TABLE citta {
+    id_citta integer NOT NULL AUTO_INCREMENT,
+    nome varchar (255),
+    id_regione integer,
+    primary key (id_citta)
+};
+
