@@ -13,4 +13,8 @@ CREATE TABLE users (
     password_ VARCHAR(255)
     );
 
-
+CREATE TABLE esercizio_iForm.regioni (
+    id_regione integer NOT NULL AUTO_INCREMENT,
+    regione varchar(100),
+  	PRIMARY KEY(id_regione) 
+);
