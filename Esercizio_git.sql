@@ -1,2 +1,2 @@
-create database esercizio_iform;
-use esercizio_iform;
+CREATE DATABASE esercizio_iform;
+USE esercizio_iform;
