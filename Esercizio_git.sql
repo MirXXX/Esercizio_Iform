@@ -26,3 +26,35 @@ CREATE TABLE esercizio_iform.citta (
     PRIMARY KEY (id_citta)
     );
 
+INSERT INTO esercizio_iform.citta (nome)
+    VALUES 
+        ('Sassari'), 
+        ('Taranto'), 
+        ('Napoli'), 
+        ('New York'), 
+        ('Dallas'), 
+        ('Roma'), 
+        ('Milano'), 
+        ('Londra'), 
+        ('Mosca'), 
+        ('Sennori'), 
+        ('Cagliari'), 
+        ('Firenze'), 
+        ('Brescia'),
+        ('Udine'),
+        ('Otranto'), 
+        ('Assisi'), 
+        ('Scapoli'), 
+        ('Palermo'), 
+        ('Gotham'), 
+        ('Parma'), 
+        ('Livorno'), 
+        ('Foggia'), 
+        ('Rimini'), 
+        ('Ferrara'), 
+        ('Modena'), 
+        ('Venezia'), 
+        ('Bari'), 
+        ('Trieste'), 
+        ('Metropolis'), 
+        ('Lucca');
