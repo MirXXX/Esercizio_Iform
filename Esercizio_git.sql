@@ -1,7 +1,7 @@
 CREATE DATABASE esercizio_iform;
 USE esercizio_iform;
 
-CREATE TABLE users (
+CREATE TABLE esercizio_iform.users (
     id_users INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT, 
     Username VARCHAR(255),
     nome VARCHAR(100),
@@ -58,3 +58,28 @@ INSERT INTO esercizio_iform.citta (nome)
         ('Trieste'), 
         ('Metropolis'), 
         ('Lucca');
+
+INSERT INTO esercizio_iform.users (Username, email, id_citta)
+    VALUES 
+        ('Belle', 'belle@belle.it', '17'),
+	    ('Brutt', 'brutt@spumante.it', '21'),
+        ('Daisy', 'duck@paperopoli.com', '19'),
+        ('Billo', 'brillo@vino.com', '14'),
+        ('Bullo', 'biello@gugu.it', '22'),
+        ('Nade', 'speranza@bubu.it', '26'),
+        ('Davide', 'bissiri@notturno.com', '1'),
+        ('Arlo', 'davide@arlo.it', '7'),
+        ('Maria', 'defilippi@mediaset.it', '6'),
+        ('Luca', 'limone@aspro.com', '24'),
+        ('Paolo', 'noise@105.it', '10'),
+        ('Carlo', 'balna@bubu.com', '9'),
+        ('Kira', 'patatina@cagnolina.it', '30'),
+        ('Giovanni', 'jojo@joy.it', '7'),
+        ('Jonathan', 'joestar@jojo.it', '5'),
+        ('Serjh', 'qwueiqwe@gmail.com'),
+        ('Alby', 'fad@gmail.com'),
+        ('Mickey', 'mouse@gmail.com'),
+        ('Ramones', 'carmen@gmail.com'),
+        ('Donald', 'duck@gmail.com'),
+        ('Scrooge', 'soldi@gmail.com'),
+        ('Donald', 'anonimo@gmail.com');
