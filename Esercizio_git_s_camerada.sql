@@ -146,8 +146,7 @@ SELECT DISTINCT utenti.id_citta, citta.nome
 FROM utenti
 INNER JOIN citta ON utenti.id_citta = citta.id_citta;
 
-/*SELECT utenti.id_citta, citta.nome
+SELECT utenti.id_citta, citta.nome
 FROM utenti
 INNER JOIN citta ON utenti.id_citta = citta.id_citta
 WHERE citta.nome <> "Campobasso";
-*/
