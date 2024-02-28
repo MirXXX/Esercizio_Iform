@@ -39,3 +39,8 @@ VALUES ("Mirko", "Al12345", "alberto@gmail.com", "0"),
 ("Rosa", "Mark!12", "luca@gmail.com", "0"),
 ("Calogero", "Mirko86", "mirko86@gmail.com", "1");
 
+INSERT INTO Utenti (username, password, email, is_admin)
+VALUES ("Mimmio", "Al12345", "alberto@gmail.com", "0");
+
+INSERT INTO Utenti (username, password, email, is_admin)
+VALUES ("Daniele", "Al12345", "alberto@gmail.com", "0");
