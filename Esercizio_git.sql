@@ -12,6 +12,7 @@ CREATE TABLE IF NOT EXISTS esercizio_iform.citta (
     nome varchar (255),
     id_regione integer NOT NULL,
     primary key (id_citta)
+    foreign key (id_regione) REFERENCES regioni(id_regione)
 );
 
 CREATE TABLE IF NOT EXISTS esercizio_iform.utenti (
@@ -23,6 +24,7 @@ CREATE TABLE IF NOT EXISTS esercizio_iform.utenti (
     is_admin boolean default 0,
     id_citta integer,
     primary key (id_utente)
+    foreign key (id_citta) REFERENCES citta(id_citta)
 );
 
 INSERT INTO esercizio_iform.regioni (nome)
