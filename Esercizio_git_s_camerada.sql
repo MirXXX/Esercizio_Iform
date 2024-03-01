@@ -1,4 +1,4 @@
-CREATE DATABASE esercizio_iform;
+CREATE DATABASE IF NOT EXISTS esercizio_iform;
 USE esercizio_iform;
 
 CREATE TABLE IF NOT EXISTS esercizio_iform.regioni (
@@ -11,8 +11,8 @@ CREATE TABLE IF NOT EXISTS esercizio_iform.citta (
     id_citta integer NOT NULL AUTO_INCREMENT,
     nome varchar (255),
     id_regione integer NOT NULL,
-    primary key (id_citta)
-    foreign key (id_regione) REFERENCES regioni(id_regione)
+    primary key (id_citta),
+    foreign key (id_regione) REFERENCES Regioni(id_regione)
 );
 
 CREATE TABLE IF NOT EXISTS esercizio_iform.utenti (
@@ -24,7 +24,6 @@ CREATE TABLE IF NOT EXISTS esercizio_iform.utenti (
     is_admin boolean default 0,
     id_citta integer,
     primary key (id_utente)
-    foreign key (id_citta) REFERENCES citta(id_citta)
 );
 
 INSERT INTO esercizio_iform.regioni (nome)
@@ -48,6 +47,8 @@ VALUES ("Abruzzo"),
 ("Umbria"),
 ("Val d'Aosta"),
 ("Veneto");
+
+SELECT * FROM esercizio_iform.regioni;
 
 INSERT INTO esercizio_iform.citta (nome, id_regione)
 VALUES ("Pescara", 1),
@@ -81,6 +82,8 @@ VALUES ("Pescara", 1),
 ("Verona", 20),
 ("Venezia", 20);
 
+SELECT * FROM esercizio_iform.citta;
+
 INSERT INTO esercizio_iform.utenti (username, password_, email, is_admin, id_citta)
 VALUES ("Alberto", "Al12345", "alberto@gmail.com", true, 2),
 ("Eliana", "Eli@X3", "eliana@gmail.com", false, 7),
@@ -103,20 +106,47 @@ VALUES ("Alberto", "Al12345", "alberto@gmail.com", true, 2),
 ("Enea", "jwskso872", "enea@gmail.com", false, 28),
 ("Paride", "shfiq394", "paride@gmail.com", true, 4);
 
-INSERT INTO Utenti (username, password, email, is_admin)
-VALUES ("Alberto", "Al12345", "alberto@gmail.com", "0"),
-("Eliana", "Ele@93", "eleonora@gmail.com", "1"),
-("Luca", "Mark!12", "luca@gmail.com", "0"),
-("Mirko", "Mirko86", "mirko86@gmail.com", "1");
+SELECT * FROM esercizio_iform.utenti;
 
-INSERT INTO Utenti (username, password, email, is_admin)
-VALUES ("Mirko", "Al12345", "alberto@gmail.com", "0"),
-("Carmela", "Ele@93", "eleonora@gmail.com", "1"),
-("Rosa", "Mark!12", "luca@gmail.com", "0"),
-("Calogero", "Mirko86", "mirko86@gmail.com", "1");
+SELECT utenti.id_utente, utenti.username, citta.nome
+FROM utenti
+INNER JOIN citta ON utenti.id_citta = citta.id_citta;
 
-INSERT INTO Utenti (username, password, email, is_admin)
-VALUES ("Mimmio", "Al12345", "alberto@gmail.com", "0");
+SELECT utenti.id_utente, utenti.username, citta.nome
+FROM utenti
+LEFT JOIN citta ON utenti.id_citta = citta.id_citta
+ORDER BY utenti.username;
 
-INSERT INTO Utenti (username, password, email, is_admin)
-VALUES ("Daniele", "Al12345", "alberto@gmail.com", "0");
+SELECT utenti.id_utente, utenti.username, citta.nome
+FROM utenti
+RIGHT JOIN citta ON utenti.id_citta = citta.id_citta
+ORDER BY utenti.id_utente;
+
+SELECT utenti.id_utente, utenti.username, citta.nome
+FROM utenti
+LEFT JOIN citta ON utenti.id_citta = citta.id_citta
+UNION
+SELECT utenti.id_utente, utenti.username, citta.nome
+FROM utenti
+RIGHT JOIN citta ON utenti.id_citta = citta.id_citta;
+
+SELECT utenti.id_utente, utenti.username, citta.nome, regioni.nome
+FROM utenti
+INNER JOIN citta ON utenti.id_citta = citta.id_citta
+INNER JOIN regioni ON citta.id_regione = regioni.id_regione;
+
+SELECT utenti.id_utente, utenti.username, citta.nome, regioni.nome
+FROM utenti
+INNER JOIN citta ON utenti.id_citta = citta.id_citta
+INNER JOIN regioni ON citta.id_regione = regioni.id_regione
+WHERE utenti.id_citta < 20
+ORDER BY regioni.nome;
+
+SELECT DISTINCT utenti.id_citta, citta.nome
+FROM utenti
+INNER JOIN citta ON utenti.id_citta = citta.id_citta;
+
+SELECT utenti.id_citta, citta.nome
+FROM utenti
+INNER JOIN citta ON utenti.id_citta = citta.id_citta
+WHERE citta.nome <> "Campobasso";
