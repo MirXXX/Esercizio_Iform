@@ -17,3 +17,8 @@ UNION
 SELECT id_utente, username, email, citta.nome
 FROM utenti
 RIGHT JOIN citta ON utenti.id_citta=citta.id_citta;
+
+SELECT id_utente AS Id, username AS Username, email AS "e-mail", citta.nome AS Citta, regioni.nome AS Regione
+FROM utenti
+LEFT JOIN citta ON utenti.id_citta=citta.id_citta
+LEFT JOIN regioni ON citta.id_regione=regioni.id_regione;
