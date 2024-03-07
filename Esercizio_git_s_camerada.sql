@@ -109,39 +109,40 @@ VALUES ("Alberto", "Al12345", "alberto@gmail.com", true, 2),
 
 SELECT * FROM esercizio_iform.utenti;
 
-SELECT utenti.id_utente, utenti.username, citta.nome
+SELECT utenti.id_utente, utenti.username, utenti.email, citta.nome
 FROM utenti
 INNER JOIN citta ON utenti.id_citta = citta.id_citta;
 
-SELECT utenti.id_utente, utenti.username, citta.nome
+SELECT utenti.id_utente, utenti.username, utenti.email, citta.nome
 FROM utenti
 LEFT JOIN citta ON utenti.id_citta = citta.id_citta
 ORDER BY utenti.username;
 
-SELECT utenti.id_utente, utenti.username, citta.nome
+SELECT utenti.id_utente, utenti.username, utenti.email, citta.nome
 FROM utenti
 RIGHT JOIN citta ON utenti.id_citta = citta.id_citta
 ORDER BY utenti.id_utente;
 
-SELECT utenti.id_utente, utenti.username, citta.nome
+SELECT utenti.id_utente, utenti.username, utenti.email, citta.nome
 FROM utenti
 LEFT JOIN citta ON utenti.id_citta = citta.id_citta
 UNION
-SELECT utenti.id_utente, utenti.username, citta.nome
+SELECT utenti.id_utente, utenti.username, utenti.email, citta.nome
 FROM utenti
 RIGHT JOIN citta ON utenti.id_citta = citta.id_citta;
 
-SELECT utenti.id_utente, utenti.username, citta.nome, regioni.nome
+SELECT id_utente AS Id, username AS Username, email AS "e-mail", citta.nome AS Citta, regioni.nome AS Regione
 FROM utenti
-INNER JOIN citta ON utenti.id_citta = citta.id_citta
-INNER JOIN regioni ON citta.id_regione = regioni.id_regione;
+LEFT JOIN citta ON utenti.id_citta=citta.id_citta
+LEFT JOIN regioni ON citta.id_regione=regioni.id_regione;
 
-SELECT utenti.id_utente, utenti.username, citta.nome, regioni.nome
+SELECT id_utente AS Id, username AS Username, email AS "e-mail", citta.nome AS Citta, regioni.nome AS Regione
 FROM utenti
-INNER JOIN citta ON utenti.id_citta = citta.id_citta
-INNER JOIN regioni ON citta.id_regione = regioni.id_regione
-WHERE utenti.id_citta < 20
-ORDER BY regioni.nome;
+LEFT JOIN citta ON utenti.id_citta=citta.id_citta
+LEFT JOIN regioni ON citta.id_regione=regioni.id_regione
+WHERE utenti.id_citta<20
+OR utenti.id_citta IS NULL
+ORDER BY Regione;
 
 SELECT DISTINCT utenti.id_citta, citta.nome
 FROM utenti
